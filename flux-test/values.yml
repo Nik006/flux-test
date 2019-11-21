@@ -1,0 +1,78 @@
+# Default values for flux.
+nameOverride: "flux"
+
+# Weave Cloud service token
+token: "" #Can be left empty if you don't own weave cloud license
+
+replicaCount: 1
+
+image:
+  repository: quay.io/weaveworks/flux
+  tag: 1.4.2
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 3030
+
+helmOperator:
+  create: false
+  repository: quay.io/weaveworks/helm-operator
+  tag: 0.1.1-alpha
+  pullPolicy: IfNotPresent
+  tillerNamespace: kube-system
+  tls:
+	secretName: 'helm-client-certs'
+	verify: false
+	enable: false
+	keyFile: 'tls.key'
+	certFile: 'tls.crt'
+	caContent: ''
+
+rbac:
+  # Specifies whether RBAC resources should be created
+  create: true
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+resources:
+  # If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  limits:
+   cpu: 2000m
+   memory: 2Gi
+  requests:
+   cpu: 100m
+   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+git:
+  # URL of git repo with Kubernetes manifests; e.g. git.url=ssh://git@github.com/weaveworks/flux-example
+  url: "https://Nik006.github.io/flux-test/"
+  # Branch of git repo to use for Kubernetes manifests
+  branch: "master"
+  # Path within git repo to locate Kubernetes manifests (relative path)
+  path: ""
+  # Username to use as git committer
+  user: "Nik006"
+  # Email to use as git committer
+  email: "nikhilkhandelwal006@gmail.com"
+  # Path within git repo to locate Helm charts (relative path)
+  chartsPath: "charts"
+  # Period at which to poll git repo for new commits
+  pollInterval: "10s"
+
+
+#for https://github.com/justinbarrick/fluxcloud/
+#additionalArgs:
+# - --connect=ws://fluxcloud
