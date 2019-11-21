@@ -58,7 +58,7 @@ affinity: {}
 
 git:
   # URL of git repo with Kubernetes manifests; e.g. git.url=ssh://git@github.com/weaveworks/flux-example
-  url: "https://Nik006.github.io/flux-test/"
+  url: "git@github.com:Nik006/helm-chart.git"
   # Branch of git repo to use for Kubernetes manifests
   branch: "master"
   # Path within git repo to locate Kubernetes manifests (relative path)
@@ -66,12 +66,17 @@ git:
   # Username to use as git committer
   user: "Nik006"
   # Email to use as git committer
-  email: "nikhilkhandelwal006@gmail.com"
+  email: "<nikhilkhandelwal006@gmail.com>"
   # Path within git repo to locate Helm charts (relative path)
-  chartsPath: "charts"
+  chartsPath: ""
   # Period at which to poll git repo for new commits
   pollInterval: "10s"
 
+ssh:
+  # Overrides for git over SSH. If you use your own git server, you
+  # will likely need to provide a host key for it in this field.
+  known_hosts: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDXQMLb6+qaEvyTucpWmAbCNmB47Q7DNaGS5xuN2SfndU6onDxFtlAXM6qfV6ZNk/tODJ6Cg6g/zV7cMbZhPBKk4tf+ha0dFSqZFsOfK3y+xbgJO6Z5Xj56g0Atdj8cjERLPGAanL4wGCvwW/aMzt1aYDG5hYhBHYhvITcqGzi7k+MT5Ue1Z0aEgHRs36QKP1AeePaOSarV2GAG+wSm4rcfogkZoUxHHETp3xnz8a6j9dzUQBWOmpNtWlWHcQ5GrfL/7aG5/FRRY/fal23ieV5XkPUtdSAHSOTGLRezXIkJq09VrWfVvsHEbCpdfqUqujBlzmzmpc2cuYdSwIWQTUMPeq8zTdDLoYqFNhJLt0wr3vQ2z2ctkOMHZ2TxtfdrZ2xTgyI6CPKtfmLGkBlHffeJBs97Xeg4wthfHgPYMpWZbo9oPUSQmtYFB3J3cdlatF114tAqZ8vlnilWt7TPhkPOAZldOHGEgUp5PccpM5BIxpWgBfbMwmDUAgFzMqzxUcCCrt030Q2wQWV3k/Zlb3/YoirxUb0isOfm2n+fV+8pTFGu/dK2jFTR0zs6mVjxUWgtiElzbLfRdojmdhXEIAsm91n/kJwm4J+CPFZWNLr8iF09bMOn6cNEjVsb/exCzc64gNitnlGP3+j2mTkQE2flAlvdWHbm1rpQpaylO9Z8yw== nikhilkhandelwal006@gmail.com.com
+\n"
 
 #for https://github.com/justinbarrick/fluxcloud/
 #additionalArgs:
