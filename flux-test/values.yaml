@@ -22,12 +22,6 @@ helmOperator:
   pullPolicy: IfNotPresent
   tillerNamespace: kube-system
   tls:
-	secretName: 'helm-client-certs'
-	verify: false
-	enable: false
-	keyFile: 'tls.key'
-	certFile: 'tls.crt'
-	caContent: ''
 
 rbac:
   # Specifies whether RBAC resources should be created
